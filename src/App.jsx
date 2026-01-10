@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
+import trashIcon from "/icons/trash-2.svg";
+
+
 function uid() {
   return Math.random().toString(36).slice(2, 10);
 }
@@ -164,17 +167,38 @@ export default function App() {
             ) : (
               cards.map((c, i) => {
                 const active = c.id === selectedId;
+
                 return (
-                  <button
-                    key={c.id}
-                    className={`listItem ${active ? "active" : ""}`}
-                    onClick={() => selectByIndex(i)}
-                  >
-                    <div className="listItemTitle">{c.front}</div>
-                    <div className="listItemMeta">
-                      {c.back.length > 40 ? c.back.slice(0, 40) + "…" : c.back}
-                    </div>
-                  </button>
+                  <div key={c.id} className={`listItemRow ${active ? "active" : ""}`}>
+                    <button
+                      className="listItemMain"
+                      onClick={() => selectByIndex(i)}
+                      title="Open card"
+                    >
+                      <div className="listItemTitle">{c.front}</div>
+                      <div className="listItemMeta">
+                        {c.back.length > 40 ? c.back.slice(0, 40) + "…" : c.back}
+                      </div>
+                    </button>
+
+                    <button
+                      className="listTrashBtn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        deleteCard(c.id);
+                      }}
+                      aria-label="Delete card"
+                      title="Delete card"
+                    >
+                      <svg className="listTrashIcon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          fill="currentColor"
+                          d="M9 3h6l1 2h4v2H4V5h4l1-2zm1 6h2v10h-2V9zm4 0h2v10h-2V9zM7 9h2v10H7V9z"
+                        />
+                      </svg>
+                    </button>
+
+                  </div>
                 );
               })
             )}
@@ -247,11 +271,8 @@ export default function App() {
                       ▶
                     </button>
                   </div>
-                  <div className="rightActions">
-                    <button className="danger" onClick={() => deleteCard(current.id)}>
-                      Delete
-                    </button>
-                  </div>
+              
+
                 </div>
               </div>
             )}
