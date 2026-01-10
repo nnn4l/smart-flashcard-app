@@ -1,16 +1,32 @@
-# React + Vite
+# Smart Flashcards
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal, dark, monospace flashcard web app built with React + Vite.  
+Designed for fast studying with a sidebar card list, quick add, and keyboard navigation.
 
-Currently, two official plugins are available:
+## Features
+- Sidebar list of cards (select any card to study)
+- Add new cards (front + back)
+- Click card to flip (front vs answer)
+- Keyboard navigation:
+  - `Left / Right` arrows: previous / next card
+  - `Space` or `Enter`: flip card
+  - `B`: toggle sidebar (optional)
+- Delete cards via trash icon in the sidebar
+- Persists cards using `localStorage`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- React
+- Vite
+- CSS (minimal dark theme, monospace)
 
-## React Compiler
+## Where data is stored
+Cards are saved in your browser in `localStorage` under this key:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `smartFlashcards.v1`
 
-## Expanding the ESLint configuration
+This means:
+- Refreshing the page keeps your cards
+- Different browsers/devices do not sync automatically
+- Clearing site data wipes cards
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure (typical)
