@@ -1,0 +1,16 @@
+:root {
+  color-scheme: dark;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  background: #0b0d10;
+  color: #e6e6e6;
+}
