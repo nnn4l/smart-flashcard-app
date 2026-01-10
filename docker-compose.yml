@@ -1,14 +1,7 @@
 services:
   web:
-    image: smart-flashcards-dev
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
+    build: .
+    container_name: smart-flashcards
     ports:
-      - "5173:5173"
-    volumes:
-      - .:/app
-      - /app/node_modules
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-    command: npm run dev -- --host 0.0.0.0 --port 5173
+      - "127.0.0.1:5002:80"
+    restart: unless-stopped
