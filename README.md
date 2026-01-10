@@ -30,3 +30,10 @@ This means:
 - Clearing site data wipes cards
 
 ## Project Structure (typical)
+smart-flashcards/
+src/
+App.jsx
+App.css
+index.css
+icons/
+trash.svg (or trash.png)
