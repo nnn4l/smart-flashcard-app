@@ -1,3 +1,5 @@
+https://flashcards.northropchicken.xyz/
+
 # Smart Flashcards
 
 A minimal, dark, monospace flashcard web app built with React + Vite.  
